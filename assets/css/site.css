@@ -127,8 +127,8 @@ p{margin:0 0 1em}
 .photo-credit{font-size:.78rem;color:var(--muted);margin-top:8px}
 
 /* Guarantee band: cover with parallax (core has-parallax) */
-.wp-block-cover.has-parallax{position:relative;background-image:url(../img/through-glass.webp);background-size:cover;background-position:center;background-attachment:fixed;padding-block:var(--s80);overflow:hidden}
-.wp-block-cover.has-parallax .wp-block-cover__background{background:rgba(9,20,29,.82)}
+.wp-block-cover.has-parallax{position:relative;background:#1a3549;border-block:1px solid var(--line);padding-block:var(--s80);overflow:hidden}
+.wp-block-cover.has-parallax .wp-block-cover__background{display:none}
 @supports (-webkit-touch-callout:inherit){.wp-block-cover.has-parallax{background-attachment:scroll}}
 .guarantee{display:grid;grid-template-columns:auto 1fr;gap:var(--s60);align-items:center}
 .big-num{font:300 clamp(7rem,14vw,12rem)/.8 var(--serif);color:var(--glass)}
