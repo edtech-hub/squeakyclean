@@ -12,14 +12,24 @@
 <meta name="theme-color" content="#0b1720">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;1,7..72,300&family=Ysabeau+Office:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/crew-southlake.webp">
 <link rel="stylesheet" href="assets/css/wp-blocks.css">
 <link rel="stylesheet" href="assets/css/site.css">
+<script>
+/* View Transitions plugin pattern: the clicked card morphs into its match on the next page. */
+window.addEventListener('pagereveal', function (e) {
+  var k; try { k = sessionStorage.getItem('vt'); sessionStorage.removeItem('vt'); } catch (x) {}
+  if (!e.viewTransition || !k) return;
+  var el = document.querySelector('[data-vt-key="' + k + '"]');
+  if (!el) return;
+  el.style.viewTransitionName = 'expand';
+  e.viewTransition.finished.then(function () { el.style.viewTransitionName = ''; });
+});
+</script>
 <script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
-<body class="wp-site-blocks">
-
+<body class="wp-site-blocks page-home">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <style>.ill *{vector-effect:non-scaling-stroke}</style>
@@ -42,21 +52,27 @@
 </div>
 
 <header class="site-header">
-  <div class="alignwide">
-    <a class="wp-block-site-logo" href="#top" aria-label="Squeaky Clean Windows and Glass Restoration, home"><img src="assets/img/logo-light.png" alt="Squeaky Clean Windows and Glass Restoration" width="212" height="94"></a>
+  <div class="alignwide header-row">
+    <a class="wp-block-site-logo" href="./" aria-label="Squeaky Clean Windows and Glass Restoration, home"><img src="assets/img/logo-light.png" alt="Squeaky Clean Windows and Glass Restoration" width="212" height="94"></a>
     <nav class="wp-block-navigation" id="nav" aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#guarantee">Guarantee</a>
-      <a href="#commercial">Commercial</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+      <ul class="wp-block-navigation__container">
+        <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="./" data-nav="home" aria-current="page">Home</a></li>
+        <li class="wp-block-navigation-item has-child has-mega">
+          <a class="wp-block-navigation-item__content" href="services.html" data-nav="services">Services</a>
+          <button class="wp-block-navigation-submenu__toggle" aria-expanded="false" aria-controls="mega" aria-label="Show services"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5l4 3.5 4-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <div class="mega" id="mega"><div class="alignwide"><ul class="mega-grid"><li><a class="mega-card" href="services.html#cleaning" data-vt="svc-cleaning"><div class="mega-arch"><svg aria-hidden="true"><use href="#i-clean"/></svg></div><span class="mega-title">Window cleaning</span><span class="mega-text">Inside and out, with screens, tracks and frames done by hand.</span></a></li><li><a class="mega-card" href="services.html#repair" data-vt="svc-repair"><div class="mega-arch"><svg aria-hidden="true"><use href="#i-repair"/></svg></div><span class="mega-title">Glass repair</span><span class="mega-text">One cracked pane or a run of windows and doors.</span></a></li><li><a class="mega-card" href="services.html#argon" data-vt="svc-argon"><div class="mega-arch"><svg aria-hidden="true"><use href="#i-argon"/></svg></div><span class="mega-title">Argon glass replacement</span><span class="mega-text">Gas-filled panes that keep heat and street noise out.</span></a></li><li><a class="mega-card" href="services.html#foggy" data-vt="svc-foggy"><div class="mega-arch"><svg aria-hidden="true"><use href="#i-fog"/></svg></div><span class="mega-title">Foggy window repair</span><span class="mega-text">Haze trapped between the panes means a failed seal.</span></a></li><li><a class="mega-card" href="services.html#fixtures" data-vt="svc-fixtures"><div class="mega-arch"><svg aria-hidden="true"><use href="#i-fixture"/></svg></div><span class="mega-title">Fixture cleaning</span><span class="mega-text">Chandeliers, ceiling fans, cabinet tops and mirrors.</span></a></li></ul><div class="mega-foot"><a href="services.html">All services</a><span>Also gutters, power washing and commercial glass</span><a href="./#quote">Get a free estimate</a></div></div></div>
+        </li>
+        <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="about.html" data-nav="about">About</a></li>
+        <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="./#faq">FAQ</a></li>
+        <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
     </nav>
-    <a class="header-phone" href="tel:+18179387654"><small>Call or text</small>817-938-7654</a>
-    <div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#quote">Free estimate</a></div></div>
+    <a class="header-phone" href="tel:+18179387654"><small>Call us</small>817-938-7654</a>
+    <div class="wp-block-buttons header-cta"><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="./#quote">Free estimate</a></div></div>
+    <a class="header-call" href="tel:+18179387654" aria-label="Call 817-938-7654"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5l2.6 3.4-1.7 2.2a12 12 0 0 0 7.4 7.4l2.2-1.7 3.4 2.6-1.4 3.1C10.6 20.5 3.5 13.4 3.5 4.9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
   </div>
 </header>
-
 <main id="top">
 
 <section class="wp-block-cover hero">
@@ -123,14 +139,8 @@
       <h2>Everything to do with <em>your glass</em>, from one company.</h2>
       <p>Most homeowners call one crew to wash windows and another to fix them. Chuck Davis started Squeaky Clean so you only need one number for both, and for the chandelier in the entryway too.</p>
     </div>
-    <div class="panes">
-      <a class="pane wp-reveal" href="#quote" data-service="cleaning"><div class="pane-arch"><svg aria-hidden="true" style="color:var(--glass)"><use href="#i-clean"/></svg></div><h3>Window cleaning</h3><p>Inside and out, with screens, tracks and frames done by hand.</p></a>
-      <a class="pane wp-reveal" href="#quote" data-service="repair"><div class="pane-arch"><svg aria-hidden="true" style="color:var(--glass)"><use href="#i-repair"/></svg></div><h3>Glass repair</h3><p>One cracked pane or a run of windows and doors. Quick and safe.</p></a>
-      <a class="pane wp-reveal" href="#quote" data-service="argon"><div class="pane-arch"><svg aria-hidden="true" style="color:var(--glass)"><use href="#i-argon"/></svg></div><h3>Argon glass replacement</h3><p>Gas-filled panes that keep Texas heat and street noise out, fitted right.</p></a>
-      <a class="pane wp-reveal" href="#quote" data-service="foggy"><div class="pane-arch"><svg aria-hidden="true" style="color:var(--glass)"><use href="#i-fog"/></svg></div><h3>Foggy window repair</h3><p>Haze trapped between the panes means a failed seal. We fix it.</p></a>
-      <a class="pane wp-reveal" href="#quote" data-service="fixtures"><div class="pane-arch"><svg aria-hidden="true" style="color:var(--glass)"><use href="#i-fixture"/></svg></div><h3>Fixture cleaning</h3><p>Chandeliers, ceiling fans, cabinet tops, mirrors and glass tables. No wobbly ladder for you.</p></a>
-    </div>
-    <p class="also">Also on our list: gutter cleaning, power washing and rappelling glass work for taller buildings. <span class="ph-chip">Confirm current services</span></p>
+    <div class="panes"><a class="pane wp-reveal" href="services.html#cleaning" data-vt="svc-cleaning"><div class="pane-arch"><svg aria-hidden="true"><use href="#i-clean"/></svg></div><h3>Window cleaning</h3><p>Inside and out, with screens, tracks and frames done by hand.</p><span class="more">Learn more</span></a><a class="pane wp-reveal" href="services.html#repair" data-vt="svc-repair"><div class="pane-arch"><svg aria-hidden="true"><use href="#i-repair"/></svg></div><h3>Glass repair</h3><p>One cracked pane or a run of windows and doors.</p><span class="more">Learn more</span></a><a class="pane wp-reveal" href="services.html#argon" data-vt="svc-argon"><div class="pane-arch"><svg aria-hidden="true"><use href="#i-argon"/></svg></div><h3>Argon glass replacement</h3><p>Gas-filled panes that keep heat and street noise out.</p><span class="more">Learn more</span></a><a class="pane wp-reveal" href="services.html#foggy" data-vt="svc-foggy"><div class="pane-arch"><svg aria-hidden="true"><use href="#i-fog"/></svg></div><h3>Foggy window repair</h3><p>Haze trapped between the panes means a failed seal.</p><span class="more">Learn more</span></a><a class="pane wp-reveal" href="services.html#fixtures" data-vt="svc-fixtures"><div class="pane-arch"><svg aria-hidden="true"><use href="#i-fixture"/></svg></div><h3>Fixture cleaning</h3><p>Chandeliers, ceiling fans, cabinet tops and mirrors.</p><span class="more">Learn more</span></a></div>
+    <p class="also">Also on our list: gutter cleaning, power washing and rappelling glass work for taller buildings. <a href="services.html">See all services</a> <span class="ph-chip">Confirm current services</span></p>
   </div>
 </section>
 
@@ -222,17 +232,15 @@
   </div>
 </section>
 
-</main>
-
-<footer class="site-footer">
+</main><footer class="site-footer">
   <div class="alignwide">
     <div class="footer-cols">
       <div>
         <img src="assets/img/logo-light.png" alt="Squeaky Clean Windows and Glass Restoration" width="180" height="80" style="height:56px;width:auto;margin-bottom:16px">
         <p class="muted" style="max-width:30em">Window cleaning, glass repair and argon glass replacement for homes and businesses across Dallas-Fort Worth. Started by Chuck Davis.</p>
       </div>
-      <div><h4>Services</h4><ul><li><a href="#services">Window cleaning</a></li><li><a href="#services">Glass repair</a></li><li><a href="#services">Argon glass replacement</a></li><li><a href="#services">Foggy window repair</a></li><li><a href="#services">Fixture cleaning</a></li><li><a href="#commercial">Commercial glass</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:+18179387654">817-938-7654</a></li><li><a href="#quote">Free estimate</a></li><li><a href="#guarantee">Rainy-day guarantee</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="services.html#cleaning">Window cleaning</a></li><li><a href="services.html#repair">Glass repair</a></li><li><a href="services.html#argon">Argon glass replacement</a></li><li><a href="services.html#foggy">Foggy window repair</a></li><li><a href="services.html#fixtures">Fixture cleaning</a></li><li><a href="services.html#commercial">Commercial glass</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+18179387654">817-938-7654</a></li><li><a href="./#quote">Free estimate</a></li><li><a href="./#guarantee">Rainy-day guarantee</a></li><li><a href="./#faq">FAQ</a></li><li><a href="about.html">About us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </div>
     <div class="footer-base"><span>&copy; 2026 Squeaky Clean Windows and Glass Restoration</span><span>Prototype by White Phoenix Consulting. Not the live site.</span></div>
   </div>
@@ -240,7 +248,7 @@
 
 <div class="mobile-bar" aria-hidden="true">
   <a class="wp-block-button__link wp-element-button" href="tel:+18179387654" style="background:transparent;color:var(--text);border-color:var(--line-2)">Call</a>
-  <a class="wp-block-button__link wp-element-button" href="#quote">Free estimate</a>
+  <a class="wp-block-button__link wp-element-button" href="./#quote">Free estimate</a>
 </div>
 
 <script src="assets/js/site.js" defer></script>
